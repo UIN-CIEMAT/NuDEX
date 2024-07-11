@@ -1,0 +1,6 @@
+#!/bin/bash
+
+
+g++ -std=c++11 ../src/*.cc ${1}.cc `root-config --libs --cflags` -I../include/   -o ${1}
+
+
