@@ -195,22 +195,6 @@ int main(int argc,char** argv){
     return 0;
   }
   //--------------------------------------------------------
-  //--------------------------------------------------------
-  //Print the output file:
-  std::ofstream outp(outfname_out);
-  theStatisticalNucleus->PrintParameters(outp);
-  theStatisticalNucleus->PrintKnownLevels(outp);
-  theStatisticalNucleus->PrintLevelDensity(outp);
-  //theStatisticalNucleus->PrintLevelScheme(outp);
-  theStatisticalNucleus->PrintThermalPrimaryTransitions(outp);
-  theStatisticalNucleus->PrintPSF(outp);
-  //theStatisticalNucleus->PrintICC(outp);
-  if(!outp.good()){
-    std::cout<<" ############# Error opening or writting in "<<outfname_out<<" #############"<<std::endl; exit(1);
-  }
-  outp.close();
-  //--------------------------------------------------------
-
 
   //--------------------------------------------------------
   //Select the start level for the cascades:
@@ -243,6 +227,21 @@ int main(int argc,char** argv){
   std::cout<<" Capture cascades starting in level i_level="<<InitialLevel<<", with E="<<iLevel->Energy<<" MeV, spin="<<iLevel->spinx2/2.<<", and parity="<<writepar<<std::endl;
   //--------------------------------------------------------
 
+  //--------------------------------------------------------
+  //Print the output file:
+  std::ofstream outp(outfname_out);
+  theStatisticalNucleus->PrintParameters(outp);
+  theStatisticalNucleus->PrintKnownLevels(outp);
+  theStatisticalNucleus->PrintLevelDensity(outp);
+  //theStatisticalNucleus->PrintLevelScheme(outp);
+  theStatisticalNucleus->PrintThermalPrimaryTransitions(outp);
+  theStatisticalNucleus->PrintPSF(outp);
+  //theStatisticalNucleus->PrintICC(outp);
+  if(!outp.good()){
+    std::cout<<" ############# Error opening or writting in "<<outfname_out<<" #############"<<std::endl; exit(1);
+  }
+  outp.close();
+  //--------------------------------------------------------
 
   //--------------------------------------------------------
   //Write input:
